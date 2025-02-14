@@ -1,0 +1,19 @@
+
+> first_10_lower <- letters[1:10]
+
+> print(first_10_lower)
+ [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j"
+
+> # Extract the last 10 English letters in upper case
+> last_10_upper <- LETTERS[17:26]
+
+> print(last_10_upper)
+ [1] "Q" "R" "S" "T" "U" "V" "W" "X" "Y" "Z"
+
+> # Extract letters between the 22nd to 24th letters in upper case
+> letters_22_24_upper <- LETTERS[22:24]
+
+> print(letters_22_24_upper)
+[1] "V" "W" "X"
+
+> sink(file=NULL)
