@@ -1,0 +1,16 @@
+
+> my_vector <- c(5, 3, 8, 6, 2, 7, 4, 1, 9, 10) # You can change the values
+
+> # Find the maximum value
+> max_value <- max(my_vector)
+
+> print(paste("Maximum value:", max_value))
+[1] "Maximum value: 10"
+
+> # Find the minimum value
+> min_value <- min(my_vector)
+
+> print(paste("Minimum value:", min_value))
+[1] "Minimum value: 1"
+
+> sink("file=NULL")
