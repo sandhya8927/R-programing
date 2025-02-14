@@ -1,0 +1,22 @@
+
+> set.seed(123)
+
+> # Create a list of random numbers in normal distribution
+> random_numbers <- rnorm(100, mean = 0, sd = 1) # You can change the mean, sd, and sample  .... [TRUNCATED] 
+
+> # Round the numbers to a specified number of decimal places
+> rounded_numbers <- round(random_numbers, 1)
+
+> # Count the occurrences of each value
+> occurrences <- table(rounded_numbers)
+
+> print(occurrences)
+rounded_numbers
+-2.3   -2 -1.7 -1.5 -1.3 -1.2 -1.1   -1 -0.7 -0.6 -0.5 -0.4 -0.3 -0.2 -0.1    0  0.1 
+   1    1    1    1    2    1    4    3    5    5    4    4    5    6    3    3    5 
+ 0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9    1  1.1  1.2  1.3  1.4  1.5  1.6  1.7  1.8 
+   4    3    7    3    3    2    3    3    3    2    2    1    2    2    1    1    1 
+ 2.1  2.2 
+   1    2 
+
+> sink("file=NULL")
