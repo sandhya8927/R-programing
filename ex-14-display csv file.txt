@@ -1,0 +1,5 @@
+
+> file_path <- "path/to/your/file.csv" # Replace with the actual file path
+
+> # Read the .csv file
+> data <- read.csv(file_path, header = TRUE)
