@@ -1,0 +1,46 @@
+
+> numeric_data <- c(1.5, 2.3, 3.7, 4.1, 5.0)
+
+> character_data <- c("apple", "banana", "cherry", "date", "elderberry")
+
+> logical_data <- c(TRUE, FALSE, TRUE, TRUE, FALSE)
+
+> # Display the content of the vectors
+> print("Numeric data:")
+[1] "Numeric data:"
+
+> print(numeric_data)
+[1] 1.5 2.3 3.7 4.1 5.0
+
+> print("Character data:")
+[1] "Character data:"
+
+> print(character_data)
+[1] "apple"      "banana"     "cherry"     "date"       "elderberry"
+
+> print("Logical data:")
+[1] "Logical data:"
+
+> print(logical_data)
+[1]  TRUE FALSE  TRUE  TRUE FALSE
+
+> # Display the type of each vector
+> print("Type of numeric data:")
+[1] "Type of numeric data:"
+
+> print(typeof(numeric_data))
+[1] "double"
+
+> print("Type of character data:")
+[1] "Type of character data:"
+
+> print(typeof(character_data))
+[1] "character"
+
+> print("Type of logical data:")
+[1] "Type of logical data:"
+
+> print(typeof(logical_data))
+[1] "logical"
+
+> sink("file=NULL")
