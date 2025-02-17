@@ -1,0 +1,8 @@
+
+> plot(1, type = "n", xlab = "X-Axis", ylab = "Y-Axis", main = "Empty Plot")
+
+> # Draw an empty plot with specified axis limits
+> plot(1, type = "n", xlab = "X-Axis", ylab = "Y-Axis", main = "Empty Plot with Axis Limits",
++      .... [TRUNCATED] 
+
+> sink("file=null")
