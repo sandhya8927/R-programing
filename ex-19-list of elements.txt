@@ -1,0 +1,39 @@
+
+> my_function <- function(x) {
++   return(x^2)
++ }
+
+> # Create a list with the vector, matrix, and function
+> my_list <- list(
++   vector_element = my_vector,
++   matrix_element = my_matrix,
++   functio .... [TRUNCATED] 
+
+> # Print the content of the list
+> print("Content of the list:")
+[1] "Content of the list:"
+
+> print(my_list)
+$vector_element
+[1] 1 2 3 4 5
+
+$matrix_element
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+
+$function_element
+function(x) {
+  return(x^2)
+}
+
+
+> # Demonstrate the function within the list
+> print("Result of applying the function to 2:")
+[1] "Result of applying the function to 2:"
+
+> print(my_list$function_element(2))
+[1] 4
+
+> sink("file=null")
