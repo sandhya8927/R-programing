@@ -1,0 +1,37 @@
+
+> values <- 1:24
+
+> # Define the vector of dimensions
+> dimensions <- c(3, 4, 2)
+
+> # Create the array
+> my_array <- array(values, dim = dimensions)
+
+> # Provide names for each dimension
+> dimnames(my_array) <- list(
++   Dimension1 = paste("D1", 1:3, sep = ""),
++   Dimension2 = paste("D2", 1:4, sep  .... [TRUNCATED] 
+
+> # Print the array with dimension names
+> print("Array with dimension names:")
+[1] "Array with dimension names:"
+
+> print(my_array)
+, , Dimension3 = D31
+
+          Dimension2
+Dimension1 D21 D22 D23 D24
+       D11   1   4   7  10
+       D12   2   5   8  11
+       D13   3   6   9  12
+
+, , Dimension3 = D32
+
+          Dimension2
+Dimension1 D21 D22 D23 D24
+       D11  13  16  19  22
+       D12  14  17  20  23
+       D13  15  18  21  24
+
+
+> sink("file=null")
