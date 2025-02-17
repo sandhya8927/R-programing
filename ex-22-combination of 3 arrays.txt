@@ -1,0 +1,23 @@
+
+> array1 <- array(1:9, dim = c(3, 3))
+
+> # Define the second array
+> array2 <- array(10:18, dim = c(3, 3))
+
+> # Define the third array
+> array3 <- array(19:27, dim = c(3, 3))
+
+> # Combine the first rows of each array
+> combined_rows <- rbind(array1[1, ], array2[1, ], array3[1, ])
+
+> # Print the combined rows
+> print("Combined rows of the three arrays:")
+[1] "Combined rows of the three arrays:"
+
+> print(combined_rows)
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]   10   13   16
+[3,]   19   22   25
+
+> sink("file=null")
