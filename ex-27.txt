@@ -1,0 +1,42 @@
+
+> data <- airquality
+
+> # Check if it is a data frame
+> is_data_frame <- is.data.frame(data)
+
+> print(paste("Is airquality a data frame? ", is_data_frame))
+[1] "Is airquality a data frame?  TRUE"
+
+> # Order the entire data frame by the first column (Ozone) and then by the second column (Solar.R)
+> ordered_data <- data[order(data[,1], data[,2]),]
+
+> # Print the ordered data frame
+> print("Ordered data frame:")
+[1] "Ordered data frame:"
+
+> print(head(ordered_data))
+    Ozone Solar.R Wind Temp Month Day
+21      1       8  9.7   59     5  21
+23      4      25  9.7   61     5  23
+18      6      78 18.4   57     5  18
+76      7      48 14.3   80     7  15
+147     7      49 10.3   69     9  24
+11      7      NA  6.9   74     5  11
+
+> # Remove the 'Solar.R' and 'Wind' variables
+> modified_data <- ordered_data[, !(names(ordered_data) %in% c("Solar.R", "Wind"))]
+
+> # Display the modified data frame
+> print("Data frame after removing 'Solar.R' and 'Wind':")
+[1] "Data frame after removing 'Solar.R' and 'Wind':"
+
+> print(head(modified_data))
+    Ozone Temp Month Day
+21      1   59     5  21
+23      4   61     5  23
+18      6   57     5  18
+76      7   80     7  15
+147     7   69     9  24
+11      7   74     5  11
+
+> sink("file=null")
