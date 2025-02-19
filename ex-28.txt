@@ -1,0 +1,17 @@
+
+> # Load the women dataset
+> data <- women
+
+> # Create a factor from the height variable
+> height_factor <- factor(data$height)
+
+> # Print the factor
+> print(height_factor)
+ [1] 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72
+Levels: 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72
+
+> # Display the levels of the factor
+> print(levels(height_factor))
+ [1] "58" "59" "60" "61" "62" "63" "64" "65" "66" "67" "68" "69" "70" "71" "72"
+
+> sink("file=null")
