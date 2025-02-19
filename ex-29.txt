@@ -1,0 +1,22 @@
+
+> set.seed(123)
+
+> # Take a random sample from LETTERS
+> random_sample <- sample(LETTERS, 30, replace = TRUE)
+
+> # Create a factor from the random sample
+> factor_sample <- factor(random_sample)
+
+> # Extract the first five levels of the factor
+> first_five_levels <- levels(factor_sample)[1:5]
+
+> # Print the first five levels
+> print(first_five_levels)
+[1] "C" "D" "E" "G" "H"
+
+> # Print the factor
+> print(factor_sample)
+ [1] O S N C J R V K E T N V Y Z E S Y Y I C H Z G J I S D N Q K
+Levels: C D E G H I J K N O Q R S T V Y Z
+
+> sink("file=null")
