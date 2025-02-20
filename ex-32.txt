@@ -1,0 +1,147 @@
+
+> data("airquality")
+
+> # Display the first few rows of the dataset
+> head(airquality)
+  Ozone Solar.R Wind Temp Month Day
+1    41     190  7.4   67     5   1
+2    36     118  8.0   72     5   2
+3    12     149 12.6   74     5   3
+4    18     313 11.5   62     5   4
+5    NA      NA 14.3   56     5   5
+6    28      NA 14.9   66     5   6
+
+> # 1. Compute the mean temperature without using built-in function
+> mean_temperature <- sum(airquality$Temp, na.rm = TRUE) / length(na.omit(airquali .... [TRUNCATED] 
+
+> print(paste("Mean Temperature:", mean_temperature))
+[1] "Mean Temperature: 77.8823529411765"
+
+> # 2. Extract the first five rows from airquality
+> first_five_rows <- airquality[1:5, ]
+
+> print("First Five Rows:")
+[1] "First Five Rows:"
+
+> print(first_five_rows)
+  Ozone Solar.R Wind Temp Month Day
+1    41     190  7.4   67     5   1
+2    36     118  8.0   72     5   2
+3    12     149 12.6   74     5   3
+4    18     313 11.5   62     5   4
+5    NA      NA 14.3   56     5   5
+
+> # 3. Extract all columns except Temp and Wind
+> airquality_subset <- airquality[, !(names(airquality) %in% c("Temp", "Wind"))]
+
+> print("Subset of airquality without Temp and Wind:")
+[1] "Subset of airquality without Temp and Wind:"
+
+> print(head(airquality_subset))
+  Ozone Solar.R Month Day
+1    41     190     5   1
+2    36     118     5   2
+3    12     149     5   3
+4    18     313     5   4
+5    NA      NA     5   5
+6    28      NA     5   6
+
+> # 4. Find the coldest day during the period
+> coldest_day_index <- which.min(airquality$Temp)
+
+> coldest_day <- airquality[coldest_day_index, ]
+
+> print("Coldest Day:")
+[1] "Coldest Day:"
+
+> print(coldest_day)
+  Ozone Solar.R Wind Temp Month Day
+5    NA      NA 14.3   56     5   5
+
+> # 5(i). Get summary statistics of airquality dataset
+> summary_stats <- summary(airquality)
+
+> print("Summary Statistics of Air Quality Dataset:")
+[1] "Summary Statistics of Air Quality Dataset:"
+
+> print(summary_stats)
+     Ozone           Solar.R           Wind             Temp           Month      
+ Min.   :  1.00   Min.   :  7.0   Min.   : 1.700   Min.   :56.00   Min.   :5.000  
+ 1st Qu.: 18.00   1st Qu.:115.8   1st Qu.: 7.400   1st Qu.:72.00   1st Qu.:6.000  
+ Median : 31.50   Median :205.0   Median : 9.700   Median :79.00   Median :7.000  
+ Mean   : 42.13   Mean   :185.9   Mean   : 9.958   Mean   :77.88   Mean   :6.993  
+ 3rd Qu.: 63.25   3rd Qu.:258.8   3rd Qu.:11.500   3rd Qu.:85.00   3rd Qu.:8.000  
+ Max.   :168.00   Max.   :334.0   Max.   :20.700   Max.   :97.00   Max.   :9.000  
+ NA's   :37       NA's   :7                                                       
+      Day      
+ Min.   : 1.0  
+ 1st Qu.: 8.0  
+ Median :16.0  
+ Mean   :15.8  
+ 3rd Qu.:23.0  
+ Max.   :31.0  
+               
+
+> # 5(ii). Convert airquality dataset to long format manually (Melt Data)
+> long_format_data <- data.frame(
++   Month = rep(airquality$Month, times =  .... [TRUNCATED] 
+
+> print("Manually Melted Air Quality Data (Long Format):")
+[1] "Manually Melted Air Quality Data (Long Format):"
+
+> print(head(long_format_data))
+  Month Day Variable Value
+1     5   1    Ozone    41
+2     5   2    Ozone    36
+3     5   3    Ozone    12
+4     5   4    Ozone    18
+5     5   5    Ozone    NA
+6     5   6    Ozone    28
+
+> # 5(iii). Convert airquality data into long format with Month & Day as ID Variables
+> long_format_data_with_id <- data.frame(
++   Month = rep(airqua .... [TRUNCATED] 
+
+> print("Long Format Data with Month and Day as ID Variables:")
+[1] "Long Format Data with Month and Day as ID Variables:"
+
+> print(head(long_format_data_with_id))
+  Month Day Variable Value
+1     5   1    Ozone    41
+2     5   2    Ozone    36
+3     5   3    Ozone    12
+4     5   4    Ozone    18
+5     5   5    Ozone    NA
+6     5   6    Ozone    28
+
+> # 5(iv). Reshape data to wide format (Casting manually)
+> wide_format_data <- reshape(long_format_data_with_id, 
++                             timev .... [TRUNCATED] 
+
+> print("Manually Casted Data (Reshaped by Month and Day):")
+[1] "Manually Casted Data (Reshaped by Month and Day):"
+
+> print(head(wide_format_data))
+  Month Day Value.Ozone Value.Solar.R Value.Wind Value.Temp
+1     5   1          41           190        7.4         67
+2     5   2          36           118        8.0         72
+3     5   3          12           149       12.6         74
+4     5   4          18           313       11.5         62
+5     5   5          NA            NA       14.3         56
+6     5   6          28            NA       14.9         66
+
+> # 5(v). Compute the average of Ozone, Solar.R, Wind, and Temp per month manually
+> monthly_avg <- aggregate(airquality[, c("Ozone", "Solar.R", "Wind ..." ... [TRUNCATED] 
+
+> print("Monthly Averages of Ozone, Solar.R, Wind, and Temp:")
+[1] "Monthly Averages of Ozone, Solar.R, Wind, and Temp:"
+
+> print(monthly_avg)
+  Month    Ozone  Solar.R      Wind     Temp
+1     5 23.61538 181.2963 11.622581 65.54839
+2     6 29.44444 190.1667 10.266667 79.10000
+3     7 59.11538 216.4839  8.941935 83.90323
+4     8 59.96154 171.8571  8.793548 83.96774
+5     9 31.44828 167.4333 10.180000 76.90000
+
+> sink("file=null")
