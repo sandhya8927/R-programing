@@ -1,0 +1,92 @@
+
+> data("ChickWeight")
+
+> # 1. Order the dataset by "weight" in ascending order grouped by "Diet"
+> ordered_chickweight <- ChickWeight[order(ChickWeight$Diet, ChickWeight$wei .... [TRUNCATED] 
+
+> # Extract the last 6 records from the ordered data frame
+> last_six_records <- tail(ordered_chickweight, 6)
+
+> print("Last 6 Records from Ordered Data Frame:")
+[1] "Last 6 Records from Ordered Data Frame:"
+
+> print(last_six_records)
+    weight Time Chick Diet
+577    264   20    50    4
+578    264   21    50    4
+483    269   20    42    4
+484    281   21    42    4
+553    303   20    48    4
+554    322   21    48    4
+
+> # 2. Melting function based on "Chick", "Time", "Diet" as ID variables
+> long_format_data <- data.frame(
++   Chick = rep(ChickWeight$Chick, times =  .... [TRUNCATED] 
+
+> print("Manually Melted ChickWeight Data:")
+[1] "Manually Melted ChickWeight Data:"
+
+> print(head(long_format_data))
+  Chick Time Diet Variable Value
+1     1    0    1   Weight    42
+2     1    2    1   Weight    51
+3     1    4    1   Weight    59
+4     1    6    1   Weight    64
+5     1    8    1   Weight    76
+6     1   10    1   Weight    93
+
+> # 3. Casting functions to display mean and mode of weight grouped by Diet
+> 
+> # (a) Compute the mean weight grouped by Diet
+> mean_weight_by_diet < .... [TRUNCATED] 
+
+> print("Mean Weight by Diet:")
+[1] "Mean Weight by Diet:"
+
+> print(mean_weight_by_diet)
+  Diet   weight
+1    1 102.6455
+2    2 122.6167
+3    3 142.9500
+4    4 135.2627
+
+> # (b) Function to calculate mode
+> get_mode <- function(x) {
++   unique_x <- unique(x)
++   unique_x[which.max(tabulate(match(x, unique_x)))]
++ }
+
+> # Compute the mode of weight grouped by Diet
+> mode_weight_by_diet <- aggregate(weight ~ Diet, data = ChickWeight, FUN = get_mode)
+
+> print("Mode Weight by Diet:")
+[1] "Mode Weight by Diet:"
+
+> print(mode_weight_by_diet)
+  Diet weight
+1    1     41
+2    2     74
+3    3     41
+4    4     42
+
+> # 4. Visualization
+> 
+> # (a) Boxplot of "weight" grouped by "Diet"
+> boxplot(weight ~ Diet, data = ChickWeight, 
++         main = "Boxplot of Weigh ..." ... [TRUNCATED] 
+
+> # (b) Histogram for "weight" where Diet == 1
+> hist(ChickWeight$weight[ChickWeight$Diet == 1], 
++      main = "Histogram of Weight for Diet 1",
++    .... [TRUNCATED] 
+
+> # (c) Scatter plot of "weight" vs "Time" grouped by Diet
+> plot(ChickWeight$Time, ChickWeight$weight, 
++      col = ChickWeight$Diet, 
++      pch =  .... [TRUNCATED] 
+
+> legend("topleft", legend = unique(ChickWeight$Diet), 
++        col = unique(ChickWeight$Diet), pch = 16, 
++        title = "Diet Groups")
+
+> sink("file=null")
